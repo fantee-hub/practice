@@ -1,0 +1,274 @@
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+body{
+  font-family:'Public Sans', sans-serif;;
+  font-size:18px;
+
+}
+.menu-wrap{
+  position:fixed;
+  display:flex;
+  top:0;
+  left:0;
+  right:0;
+  justify-content: space-around;
+  background-color: #ffff;
+  align-items:center;
+  padding:15px;
+  z-index:100;
+  
+}
+.menu-wrap .toggler{
+  position: absolute;
+  top:0;
+  right:0;
+  z-index:2;
+  cursor:pointer;
+  width:50px;
+  height:50px;
+  opacity:0;
+}
+.menu-wrap .hamburger{
+  position:absolute;
+  top:0;
+  right:0;
+  width:60px;
+  height:60px;
+  padding:1rem;
+  background-color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index:-1;
+}
+
+.menu-wrap .hamburger > div{
+position: relative;
+width:100%;
+height:2px;
+background-color: black;
+display: flex;
+align-items: center;
+justify-content: center;
+transition:all 400ms ease;
+visibility: hidden;
+}
+.menu-wrap .hamburger > div:before,
+.menu-wrap .hamburger > div:after{
+  content:"";
+  position: absolute;
+  z-index:1;
+  top:-10px;
+  width:100%;
+  height:2px;
+  background-color: inherit;
+}
+.menu-wrap .hamburger > div:after{
+  top:10px;
+}
+.menu-wrap .toggler:checked + .hamburger > div{
+  transform:rotate(135deg);
+}
+.menu-wrap .toggler:checked + .hamburger > div:before,
+.menu-wrap .toggler:checked + .hamburger > div:after{
+  top:0;
+  transform: rotate(90deg);
+}
+.menu-wrap .toggler:checked:hover + .hamburger > div{
+  transform: rotate(225deg);
+}
+
+.menu-wrap .nav-links{
+  display:flex;
+  list-style: none;
+  flex-wrap: wrap;
+}
+.nav-links li{
+  margin:0px 10px;
+}
+.nav-links li a{
+  text-decoration: none;
+  color:#000000;
+  position:relative;
+}
+.nav-links li a:after{
+  content: "";
+  position: absolute;
+  height:3px;
+  width:0px;
+  display:block;
+  background:linear-gradient(45deg,#33d35e,#2ab6d9);
+  top:30px;
+  transition: all 400ms ease;
+}
+.nav-links li a:hover:after{
+  width:100%;
+}
+.request{
+  padding:12px 25px;
+  border:none;
+  border-radius:20px;
+  color:white;
+  cursor: pointer;
+  background: linear-gradient(45deg,#33d35e,#2ab6d9);
+
+}
+.request2{
+  padding:15px 30px;
+  border:none;
+  border-radius:25px;
+  color:white;
+  cursor: pointer;
+  background: linear-gradient(45deg,#33d35e,#2ab6d9);
+
+}
+.content-1{
+  background-image: url('bg-intro-desktop.svg');
+  background-repeat: no-repeat;
+  background-position: 150% 70%;
+  background-size: 60%;
+  
+}
+.content-1 .row{
+  display: flex;
+  justify-content: space-between;
+ flex-wrap:wrap;
+ align-items:center;
+ width:100%;
+
+}
+.row .col-1 .texts{
+  margin: 50px;
+  line-height: 1.4;
+  padding:10px 40px;
+}
+.head{
+  margin:20px 10px;
+}
+.button{
+  margin:20px 10px;
+}
+.paragraph{
+  margin:20px 10px;
+  display:block;
+}
+
+.row .col-2 img{
+height:600px;
+width:500px;
+}
+
+/*content 2*/
+
+.content-2{
+  background-color: hsl(0, 0%, 98%);
+  width:100%;
+
+
+}
+.content-2 .section-2{
+  padding:10px 40px;
+  margin:0px;
+}
+.easybank-head{
+  margin:20px;
+}
+.easybank-text{
+  margin:20px;
+  line-height: 1.4;
+}
+.content-2 .row2{
+  display:flex;
+  flex-direction: row;
+  align-items:flex-start;
+ 
+  justify-content: space-between;
+  margin:0 3rem;
+  padding-top:3%;
+  
+}
+.option{
+  padding-bottom: 0;
+  
+  display:flex;
+  margin:1rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+@media only screen and (max-width:760px){
+ 
+  .request{
+    visibility: hidden;
+  }
+  .menu-wrap .hamburger > div{
+    visibility: visible;
+    }
+  .menu .hamburger{
+    visibility: hidden;
+  }
+    .menu-wrap .nav-links {
+      display:none;
+      background: white;
+    }
+    .menu-wrap .toggler:checked ~ .nav-links{
+      display:block;
+      visibility: visible;
+    }
+    .content-1 .row{
+      display:flex;
+      flex-direction:column-reverse;
+      width:100%;
+      
+    }
+    .content-1{
+      background-image: url('bg-intro-mobile.svg');
+      background-repeat: no-repeat;
+      background-position: right top;
+      background-size: 100%;
+    }
+    .row .col-1 .texts{
+      margin: 20px;
+
+      line-height: 1.4;
+      padding:10px 10px;
+    }
+    .button{
+      text-align:center;
+    }
+    .head{
+      text-align:center;
+    }
+    .paragraph{
+      text-align:center;
+    }
+
+    /*content-2*/
+    .content-2{
+      margin:auto;
+      padding:auto;
+      min-width:100vw;
+    }
+    .content-2 .row2{
+   display:flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items:center;
+   text-align:center;
+   width:100%;
+    }
+    .online-banking-image{
+      text-align:center;
+    }
+    .content-2 .section-2{
+      text-align: center;
+    }
+    .center{
+      text-align:center;
+      margin:auto;
+    }
+}
